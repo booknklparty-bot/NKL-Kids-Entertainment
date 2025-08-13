@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NKL Kids Entertainment</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Plus+Jakarta+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* Base Reset and Setup */
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fffaf8;
+      color: #4a3f3f;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header */
+    header {
+      background: url('https://images.unsplash.com/photo-1509228627152-084c76e3634a?auto=format&fit=crop&w=1350&q=80')
+        center/cover no-repeat;
+      padding: 3rem 1rem;
+      height: 300px;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 153, 153, 0.45);
+      z-index: 0;
+      border-radius: 0 0 36px 36px;
+    }
+    .brand {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+   /* Modern logo styling */
+img.logo {
+  width: 110px;
+  height: auto;
+  border-radius: 16px;
+  background: #fff;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(255, 111, 111, 0.25), 
+              0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(255, 111, 111, 0.35),
+              0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin: 0;
+  line-height: 1.1;
+  color: #b12d2d; /* deeper warm red for contrast */
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+}
+
+header p {
+  margin-top: 12px;
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif; /* modern rounded look */
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #b12d2d, #ff6f6f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* gradient text */
+  text-shadow: none;
+  max-width: 650px;
+}
+
+
+
+
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 3rem auto 2rem;
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    /* Sections */
+    .section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 8px 24px rgba(255, 111, 111, 0.18);
+      margin-bottom: 36px;
+    }
+    .section h2 {
+      color: #c74444;
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.4rem;
+      margin-bottom: 18px;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .section h3 {
+      margin: 8px auto 12px;
+      text-align: center;
+      font-size: 1.35rem;
+      color: #b74444;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .description {
+      color: #5a4747;
+      font-weight: 500;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Cards container */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    /* Cards */
+    .card {
+      background: #fff0f2;
+      border-radius: 18px;
+      overflow: hidden;
+      width: 240px;
+      box-shadow: 0 10px 32px rgba(255, 111, 111, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 24px 20px;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 48px rgba(255, 111, 111, 0.38);
+    }
+    .card img,
+    .card .icon {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      margin-bottom: 14px;
+    }
+    .card .icon {
+      font-size: 56px;
+      user-select: none;
+      color: #ff6f6f;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+    }
+    .card p {
+      margin: 10px 0 0;
+      font-weight: 600;
+      color: #af3b3b;
+      font-size: 1.15rem;
+      user-select: none;
+    }
+    .card .desc {
+      color: #6e5555;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-top: 6px;
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    /* Why Choose Us */
+    #why-choose-us {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    #why-choose-us ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    #why-choose-us li {
+      background: #ffe8e8;
+      border-radius: 16px;
+      padding: 20px 16px;
+      box-shadow: 0 8px 24px rgba(255, 111, 111, 0.25);
+      font-weight: 600;
+      color: #b74444;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1.1rem;
+      cursor: default;
+      user-select: none;
+    }
+    #why-choose-us li .icon {
+      font-size: 26px;
+      color: #ff5f5f;
+    }
+
+    /* Booking form */
+    .form-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    form.booking {
+      background: #fff;
+      padding: 36px 32px;
+      border-radius: 16px;
+      box-shadow: 0 14px 42px rgba(255, 111, 111, 0.22);
+      text-align: left;
+      font-size: 1rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 720px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    label.field-label {
+      display: block;
+      margin-bottom: 6px;
+      color: #c74848;
+      font-weight: 700;
+      font-size: 1.05rem;
+      user-select: none;
+    }
+    input[type='text'],
+    input[type='email'],
+    input[type='tel'],
+    input[type='date'],
+    input[type='time'],
+    input[type='number'],
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1.8px solid #f9d9d9;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #4a3f3f;
+      background: #fff8f8;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 12px rgba(255, 111, 111, 0.4);
+      border-color: #ff6f6f;
+      background: #fff1f1;
+    }
+
+    .group-label {
+      margin-top: 12px;
+      display: block;
+      color: #c74848;
+      font-weight: 700;
+      font-size: 1.05rem;
+      user-select: none;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-top: 8px;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff8f8;
+      padding: 10px 18px;
+      border-radius: 14px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      font-weight: 600;
+      color: #4a3f3f;
+      font-size: 1rem;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      user-select: none;
+    }
+    .checkbox-group label:hover {
+      background: #ffdbdb;
+      border-color: #ff6f6f;
+    }
+    .checkbox-group input[type='checkbox'] {
+      margin: 0;
+      cursor: pointer;
+    }
+
+    /* Errors */
+    #time-error,
+    #service-error {
+      display: none;
+      color: #b00020;
+      font-size: 1rem;
+      margin-top: 12px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Submit */
+    .submit-row {
+      margin-top: 26px;
+    }
+    button[type='submit'] {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 1.3rem;
+      background: #ff6f6f;
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 16px #ff6f6fcc;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    button[type='submit']:hover,
+    button[type='submit']:focus {
+      background: #e65b5b;
+      box-shadow: 0 12px 32px #e65b5bcc;
+      transform: scale(1.06);
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #c74444;
+      color: #fff;
+      padding: 22px 14px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.15rem;
+      user-select: none;
+      box-shadow: 0 -3px 10px rgba(199, 68, 68, 0.75);
+      margin-top: 36px;
+      border-radius: 0 0 20px 20px;
+    }
+    #why-choose-us {
+  max-width: 900px;
+  margin: 0 auto 3rem; /* Adds 3rem space below */
+  padding-bottom: 2rem; /* Optional extra padding */
+}
+.info-section {
+  margin: 2rem auto;
+  max-width: 900px;
+  text-align: center; /* centers all text inside */
+}
+
+.info-line {
+  margin: 1.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #6e3b3b;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img
+        class="logo"
+        src="images/NKL-logo.png"
+        alt="NKL Kids Entertainment company logo"
+      />
+      <div style="text-align: left;">
+        <h1 style="margin: 0">NKL Kids Entertainment</h1>
+        <p style="margin: 10px 0 0; font-size: 1.1rem;">
+           Your one-stop shop for party characters, interactive photo booths, henna designs, and face painting fun!
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- About -->
+    <section class="section">
+      <h2>About Us</h2>
+      <p class="description">
+        We provide professional entertainers who bring beloved characters like
+        Mickey, Minnie, Spiderman, Elsa, and more to your special event. Plus,
+        our interactive Photo Booth Services capture the fun and magic,
+        creating lasting memories for birthdays, school events, and
+        celebrations of all kinds!
+      </p>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section" id="why-choose-us">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li><span class="icon icon-star" aria-hidden="true">⭐</span> Experienced & Friendly Entertainers</li>
+        <li><span class="icon icon-shield" aria-hidden="true">🛡️</span> Safe & Family-Friendly Environment</li>
+        <li><span class="icon icon-hands" aria-hidden="true">🤝</span> Customizable Packages for Every Event</li>
+        <li><span class="icon icon-smile" aria-hidden="true">😊</span> Creating Joy & Lasting Memories</li>
+      </ul>
+    </section>
+
+    <!-- Characters -->
+    <section class="section">
+      <h2>Our Characters</h2>
+      <div class="cards">
+        <div class="card" style="min-height: 240px;">
+          <div class="icon" aria-label="Mickey Mouse">🐭</div>
+          <p>Mickey Mouse</p>
+          <p class="desc">The cheerful and iconic Disney character, perfect for bringing joy and smiles to children of all ages.</p>
+        </div>
+        <div class="card" style="min-height: 240px;">
+          <div class="icon" aria-label="Minnie Mouse">🐭</div>
+          <p>Minnie Mouse</p>
+          <p class="desc">Sweet, stylish, and full of fun — Minnie adds charm and sparkle to every celebration.</p>
+        </div>
+        <div class="card" style="min-height: 240px;">
+          <div class="icon" aria-label="Spiderman">🕷️</div>
+          <p>Spiderman</p>
+          <p class="desc">Your friendly neighborhood hero, bringing action, excitement, and superhero vibes to your party.</p>
+        </div>
+        <div class="card" style="min-height: 240px;">
+          <div class="icon" aria-label="Elsa">❄️</div>
+          <p>Elsa</p>
+          <p class="desc">Straight from Arendelle, Elsa enchants guests with her grace and magical presence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Booth -->
+    <section class="section">
+      <h2>Photo Booth Services</h2>
+      <div class="cards">
+        <div class="card" style="min-height: 200px;">
+          <div class="icon" aria-label="360 Video Camera">🎥</div>
+          <p>Stop The Time 360</p>
+          <p class="desc">A 360-degree photo booth experience that captures every angle in stunning motion, making memories unforgettable.</p>
+        </div>
+        <div class="card" style="min-height: 200px;">
+          <div class="icon" aria-label="Camera">📸</div>
+          <p>CuckooTime Booth</p>
+          <p class="desc">Fun, interactive booth with props and instant prints — perfect for laughter and keepsakes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="section">
+      <h2>Additional Services</h2>
+      <div class="cards">
+        <div class="card" style="min-height: 200px;">
+          <div class="icon" aria-label="Face Painting">🎨</div>
+          <p>Face Painting</p>
+          <p class="desc">Includes entertaining activities like chair games to keep kids busy!</p>
+        </div>
+        <div class="card" style="min-height: 200px;">
+          <div class="icon" aria-label="Henna">✋</div>
+          <p>Henna</p>
+          <p class="desc">Traditional and beautiful henna designs adding cultural charm to your events.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR PACKAGES (Price-free) -->
+    <section class="section" id="packages">
+      <h2>Our Packages</h2>
+
+      <!-- Mascot -->
+      <h3>🤩 Mascot Visit Packages</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="icon" aria-hidden="true">🎭</div>
+          <p>Mascot Visit – 30 minutes</p>
+          <p class="desc">
+            1 Mascot of your choice<br>
+            Meet &amp; Greet with photo opportunities<br>
+            Dancing and singing “Happy Birthday”
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">🎭</div>
+          <p>Mascot Visit – 60 minutes</p>
+          <p class="desc">
+            1 Mascot of your choice<br>
+            Birthday gift for the birthday child<br>
+            Fun mascot-led games &amp; interaction<br>
+            Dance and sing happy birthday
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">🎭</div>
+          <p>Mascot Visit – 90 minutes</p>
+          <p class="desc">
+            1 Mascot of your choice<br>
+            Birthday gift for the birthday child<br>
+            Interactive games and dancing with the mascot<br>
+            Goody bags for up to 15 kids<br>
+            Dance and sing happy birthday
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">🎭</div>
+          <p>Mascot Visit – 120 minutes (Deluxe)</p>
+          <p class="desc">
+            1 Mascot of your choice<br>
+            Big surprise gift for the birthday child<br>
+            Mascot brings interactive games<br>
+            Fun Chair Game for kids<br>
+            Goody bags for up to 25 kids<br>
+            Face painting
+          </p>
+        </div>
+
+        <div class="card" style="background:#f9fffa;">
+          <div class="icon" aria-hidden="true">✨</div>
+          <p>Custom Package Option</p>
+          <p class="desc">Don’t see exactly what you want? Create your own package!</p>
+        </div>
+      </div>
+
+      <!-- Face Painting -->
+       <h3>    </h3>
+      <h3>🎨 NKL Face Painting Fun Packages</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="icon" aria-hidden="true">🎨</div>
+          <p>Package 1 – Color &amp; Play</p>
+          <p class="desc">
+            Professional face painting with safe, colorful paints<br>
+            Fun designs: superheroes, princesses, animals &amp; glitter<br>
+            Interactive games after painting<br>
+            Small prizes for game winners
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">🎨</div>
+          <p>Package 2 – Color, Games &amp; Surprises</p>
+          <p class="desc">
+            Colorful designs for all kids with extra time<br>
+            Party games: relay races, dance contests, scavenger hunts<br>
+            Small prizes for everyone<br>
+            Special surprise activity for the birthday child
+          </p>
+        </div>
+      </div>
+
+      <!-- Henna -->
+      <h3>🌸 NKL Henna Tattoo Packages</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="icon" aria-hidden="true">✋</div>
+          <p>Package 1 – Henna Express</p>
+          <p class="desc">
+            Beautiful, safe henna for hands, arms, or simple foot designs<br>
+            Floral, boho, or traditional styles<br>
+            Perfect for birthdays, small gatherings &amp; teen parties<br>
+            All-natural henna paste
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">✋</div>
+          <p>Package 2 – Henna Celebration</p>
+          <p class="desc">
+            Everything in Henna Express plus:<br>
+            More detailed, personalized designs<br>
+            Extra time for more guests<br>
+            Special design for the guest of honor<br>
+            Fun henna photo moment
+          </p>
+        </div>
+
+        <div class="card" style="background:#fff3f3;">
+          <div class="icon" aria-hidden="true">⏱</div>
+          <p>Extra Add-On</p>
+          <p class="desc">30 more minutes — must be booked before the event ends.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="cards">
+        <div class="card" style="min-height: 160px;">
+          <p>"The kids loved the characters and face painting! Highly recommend NKL Entertainment."</p>
+          <p><strong>— Sarah M.</strong></p>
+        </div>
+        <div class="card" style="min-height: 160px;">
+          <p>"Amazing photo booth and super friendly staff. Made our party extra special!"</p>
+          <p><strong>— James T.</strong></p>
+        </div>
+        <div class="card" style="min-height: 160px;">
+          <p>"NKL Kids Entertainment made our daughter's birthday magical. So glad we booked them!"</p>
+          <p><strong>— Priya K.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="section">
+      <h2>Book Your Event</h2>
+      <div class="form-wrap">
+        <form
+          class="booking"
+          action="https://formspree.io/f/xgvzpgkb"
+          method="POST"
+          id="booking-form"
+          novalidate
+        >
+          <div class="form-row">
+            <label class="field-label" for="name">Your Name *</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required />
+          </div>
+
+          <div class="form-row">
+            <label class="field-label" for="email">Email *</label>
+            <input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+          </div>
+
+          <div class="form-row">
+            <label class="field-label" for="phone">Phone Number *</label>
+            <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" required />
+          </div>
+
+          <div class="form-row">
+            <label class="field-label" for="date">Event Date *</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+
+          <div class="form-row">
+            <label class="field-label" for="start-time">Service Start Time *</label>
+            <input id="start-time" name="start-time" type="time" min="10:00" max="20:00" required />
+          </div>
+
+          <div class="form-row">
+            <label class="field-label" for="end-time">Service End Time *</label>
+            <input id="end-time" name="end-time" type="time" min="10:00" max="20:00" required />
+          </div>
+
+          <div class="form-row">
+            <label class="field-label" for="duration">Total Service Duration</label>
+            <input
+              type="text"
+              id="duration"
+              name="duration"
+              readonly
+              placeholder="Select start and end times"
+              style="background:#f5f5f5; color:#b74444; font-weight:700;"
+              aria-live="polite"
+            />
+            <!-- hidden numeric minutes field for your email -->
+            <input type="hidden" id="duration-mins" name="totalServiceDurationMinutes" value="">
+          </div>
+
+          <div
+            id="duration-display"
+            style="color: #b74444; font-weight: 700; margin-top: 8px; min-height: 24px;"
+            aria-hidden="true"
+          ></div>
+
+          <div class="form-row">
+            <label class="field-label" for="guests">Number of Guests *</label>
+            <input id="guests" name="guests" type="number" placeholder="e.g., 30" min="1" max="300" required />
+          </div>
+
+          <div>
+            <span class="group-label">Select Services *</span>
+            <div class="checkbox-group" id="services-group">
+              <label><input type="checkbox" name="services" value="Characters" /> Characters</label>
+              <label><input type="checkbox" name="services" value="Photo Booth" /> Photo Booth</label>
+              <label><input type="checkbox" name="services" value="Face Painting" /> Face Painting</label>
+              <label><input type="checkbox" name="services" value="Henna" /> Henna</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label class="field-label" for="message">Additional Details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your event or any special requests..."></textarea>
+          </div>
+
+          <div id="service-error">Please select at least one service.</div>
+          <div id="time-error">
+            Please ensure start time is before end time and both are between 10:00 AM and 8:00 PM.
+          </div>
+
+          <div class="submit-row">
+            <button type="submit">Submit Booking Request</button>
+          </div>
+        </form>
+      </div>
+
+<script>
+const form = document.getElementById('booking-form');
+const serviceError = document.getElementById('service-error');
+const timeError = document.getElementById('time-error');
+const startTimeInput = document.getElementById('start-time');
+const endTimeInput = document.getElementById('end-time');
+const durationInput = document.getElementById('duration');
+const durationMinsHidden = document.getElementById('duration-mins');
+
+function formatDuration(mins) {
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  let text = '';
+  if (h > 0) text += h + ' hour' + (h > 1 ? 's' : '');
+  if (h > 0 && m > 0) text += ' and ';
+  if (m > 0) text += m + ' minute' + (m > 1 ? 's' : '');
+  return text || '0 minutes';
+}
+
+function updateDuration(showErrors = false) {
+  const start = startTimeInput.value;
+  const end = endTimeInput.value;
+
+  // Reset display
+  durationInput.value = '';
+  durationMinsHidden.value = '';
+  if (showErrors) timeError.style.display = 'none';
+
+  if (!start || !end) return;
+
+  const [startH, startM] = start.split(':').map(Number);
+  const [endH, endM] = end.split(':').map(Number);
+
+  const minHour = 10, maxHour = 20;
+  const startTotal = startH * 60 + startM;
+  const endTotal = endH * 60 + endM;
+
+  // Bounds check
+  if (
+    startTotal < minHour * 60 ||
+    endTotal > maxHour * 60 ||
+    endTotal <= startTotal
+  ) {
+    if (showErrors) {
+      timeError.textContent = 'Please ensure times are between 10:00 AM and 8:00 PM, and end is after start.';
+      timeError.style.display = 'block';
+    }
+    return;
+  }
+
+  const diffMins = endTotal - startTotal;
+  durationInput.value = formatDuration(diffMins);
+  durationMinsHidden.value = diffMins;
+}
+
+// Update on change
+['input', 'change'].forEach(evt => {
+  startTimeInput.addEventListener(evt, () => updateDuration(false));
+  endTimeInput.addEventListener(evt, () => updateDuration(false));
+});
+
+document.addEventListener('DOMContentLoaded', () => updateDuration(false));
+
+form.addEventListener('submit', e => {
+  serviceError.style.display = 'none';
+  timeError.style.display = 'none';
+
+  const servicesChecked = form.querySelectorAll('input[name="services"]:checked');
+  if (!servicesChecked.length) {
+    serviceError.style.display = 'block';
+    e.preventDefault();
+    return;
+  }
+
+  updateDuration(true);
+  if (!durationMinsHidden.value) {
+    e.preventDefault();
+  }
+});
+</script>
+
+    </section>
+  </main>
+
+  <footer>
+    Call/Text: 762-390-9143 &nbsp; | &nbsp; Email: booknklparty@gmail.com
+  </footer>
+</body>
+</html>
