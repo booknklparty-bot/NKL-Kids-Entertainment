@@ -179,10 +179,13 @@ header p {
     }
     .card img,
     .card .icon {
-      width: 88px;
-      height: 88px;
-      object-fit: contain;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
       margin-bottom: 14px;
+      border-radius: 18px;      /* Match section/card border radius */
+      box-shadow: 0 4px 16px rgba(255, 111, 111, 0.18);
+      background: #fff;
     }
     .card .icon {
       font-size: 56px;
@@ -461,24 +464,24 @@ header p {
       <h2>Our Characters</h2>
       <div class="cards">
         <div class="card" style="min-height: 240px;">
-          <div class="icon" aria-label="Mickey Mouse">🐭</div>
-          <p>Mickey Mouse</p>
-          <p class="desc">The cheerful and iconic Disney character, perfect for bringing joy and smiles to children of all ages.</p>
+          <img src="images/marshall.png" alt="Marshall Paw Patrol Costume" class="icon" />
+          <p>Marshall</p>
+          <p class="desc">The brave and energetic fire pup from Paw Patrol, always ready to bring excitement and smiles to your party.</p>
         </div>
         <div class="card" style="min-height: 240px;">
-          <div class="icon" aria-label="Minnie Mouse">🐭</div>
-          <p>Minnie Mouse</p>
-          <p class="desc">Sweet, stylish, and full of fun — Minnie adds charm and sparkle to every celebration.</p>
+          <img src="images/chase.jpg" alt="Chase Paw Patrol Costume" class="icon" />
+          <p>Chase</p>
+          <p class="desc">The loyal police pup from Paw Patrol, bringing fun, adventure, and leadership to every celebration.</p>
         </div>
         <div class="card" style="min-height: 240px;">
-          <div class="icon" aria-label="Spiderman">🕷️</div>
-          <p>Spiderman</p>
-          <p class="desc">Your friendly neighborhood hero, bringing action, excitement, and superhero vibes to your party.</p>
+          <img src="images/bluey.png" alt="Bluey Costume" class="icon" />
+          <p>Bluey</p>
+          <p class="desc">The playful and imaginative blue heeler who inspires creativity and laughter for all ages.</p>
         </div>
         <div class="card" style="min-height: 240px;">
-          <div class="icon" aria-label="Elsa">❄️</div>
-          <p>Elsa</p>
-          <p class="desc">Straight from Arendelle, Elsa enchants guests with her grace and magical presence.</p>
+          <img src="images/bingo.png" alt="Bingo Costume" class="icon" />
+          <p>Bingo</p>
+          <p class="desc">Bluey's loving little sister, ready to join in the fun and make your event extra special.</p>
         </div>
       </div>
     </section>
